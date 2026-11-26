@@ -109,12 +109,18 @@ git add -A; git commit -m "..."; git push
 
 ## 6. 数据许可（对外发布前必读）
 
-- **OSM**（滑行道中线、机坪多边形、跑道端点）：ODbL 1.0，必须署名 “© OpenStreetMap contributors”，
-  且衍生数据也按 ODbL 共享。`build/geo.json`、`out/manifest.json` 和导出的模型都含 OSM 派生几何。
-- **OurAirports**：Public Domain。
-- **CAAC AIP 2P-1 图**：只作内部量取，**不再分发原图**；仓库里只有校准后的坐标数值
-  （`ref/derived/chart_enu.json`）。新拍的照片同理：确认可商用/可再分发再进 `ref/photos/`。
-- 模型与脚本本身：仓库暂未附 LICENSE（默认保留所有权利）。要开源请先补 LICENSE。
+**本仓库已开源**：作者原创的代码与模型 = **MIT**（`LICENSE`）；第三方数据各有许可，逐项见 `NOTICE.md`。
+
+| 数据 | 许可 | 要求 |
+|---|---|---|
+| **OSM**（滑行道中线、机坪多边形、跑道端点） | **ODbL 1.0** | 署名 “© OpenStreetMap contributors”，衍生数据库按 ODbL 共享。`build/geo.json`、`out/manifest.json`、导出的模型都含 OSM 派生几何 —— **MIT 不覆盖这部分** |
+| **OurAirports**（跑道长度/标高/ARP） | Public Domain | 无 |
+| **CAAC AIP 2P-1 图** | 仅内部量取 | 原图与 PDF 文本层**不入库**（`ref/pdf1/`、`ref/pdf2/` 已 gitignore），仓库里只有标定后的坐标数值（`ref/derived/chart_enu.json`）与自绘线划 |
+| **新闻照片** | 版权不属于本项目 | 曾用的两张带“福州晚报”水印的照片**已从版本库移除**；今后 `ref/photos/` 只放确认可再分发的图，并登记到 `NOTICE.md` |
+| 本仓库脚本与模型 | **MIT** | 保留版权与许可声明；导出物再分发时一并保留 `NOTICE.md` 的全部署名 |
+
+**任何时候都不要**把下面这些提交上去：AIP 原图/PDF 文本层、带水印的新闻图、卫星瓦片、`tools/pylib*`、
+`.credentials` 类文件。`git check-ignore -v <path>` 可确认是否已被忽略。
 
 ---
 

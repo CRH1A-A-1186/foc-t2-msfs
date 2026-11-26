@@ -120,10 +120,18 @@ blender -b build\foc-t2.blend -P tools\qc_render_r6.py
 | OpenStreetMap（滑行道中线、机坪多边形、跑道端点） | ODbL 1.0 | 再分发须署名 "© OpenStreetMap contributors" 并以 ODbL 共享衍生数据 |
 | OurAirports（跑道长度/标高/ARP） | Public Domain | 无 |
 | CAAC AIP ZSFZ 2P-1 图（T2 轮廓矢量化） | 民航局图件 | 仅作内部几何参考，**不再分发原图**；本仓库只有派生的坐标数值 |
-| 本仓库脚本与模型 | 未定（默认保留所有权利） | 如要开源请补 LICENSE |
+| 本仓库脚本与模型 | **MIT**（见 [LICENSE](LICENSE)） | 保留版权与许可声明即可；第三方数据不受 MIT 覆盖，见 [NOTICE.md](NOTICE.md) |
 
 模型几何里包含由 OSM 派生的道面/中线坐标，因此 `build/geo.json`、`out/manifest.json` 与导出的模型
 在再分发时应一并保留上述署名。
+
+## 7.2 许可（本仓库已开源）
+
+- **代码 + 模型：MIT**。可以商用、修改、再分发，保留版权与许可声明即可；导出物（GLB / MSFS 包）同理。
+- **OSM 衍生几何：ODbL 1.0**。署名 “© OpenStreetMap contributors”，衍生数据库按 ODbL 共享 —— 这部分 MIT 覆盖不了。
+- **第三方来源**逐项列在 [NOTICE.md](NOTICE.md)（OurAirports = Public Domain、CAAC AIP 只留标定坐标、无 Asobo 资产）。
+- 早期本地参考里两张带“福州晚报”水印的新闻照片、以及 CAAC AIP PDF 的文本层，**已从版本库移除**（`.gitignore` 忽略），仓库不含这些内容。
+- 免责：非官方项目，模型为公开资料重构，不得用于导航或真实飞行。
 
 ## 8. 影像校核（Google 卫星，经本地代理抓取）
 
