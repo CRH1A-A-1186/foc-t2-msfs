@@ -330,6 +330,8 @@ def fix_view(start=1.0, end=80000.0, pivot=(256.0, 33.0, 20.0),
                     continue
                 space.clip_start = start
                 space.clip_end = end
+                if space.overlay:
+                    space.overlay.grid_scale = 100.0   # 1 m grid turns into dot noise at 1.5 km
                 if space.region_3d:
                     space.region_3d.view_perspective = 'PERSP'
                     space.region_3d.view_location = pivot

@@ -29,8 +29,8 @@
  "tris": 22693,
  "blend": {
   "path": "F:\\dshproj\\foc-t2\\build\\foc-t2.blend",
-  "bytes": 581534,
-  "md5": "955e207ec508261ee414111aa22adcf4",
+  "bytes": 581672,
+  "md5": "b1d4e4cfa5e2b057079b50192832b75b",
   "engine": "BLENDER_EEVEE",
   "cameras": ["CAM-iso", "CAM-section", "CAM-land", "CAM-eave", "CAM-top"],
   "clip_end_m": 60000
