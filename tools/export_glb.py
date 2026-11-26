@@ -4,9 +4,10 @@
 Run: blender -b build/foc-t2.blend -P tools/export_glb.py
 """
 import bpy, os, json, hashlib, math
+import os
 from mathutils import Vector
 
-ROOT = r"F:\dshproj\foc-t2"
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'out')
 os.makedirs(OUT, exist_ok=True)
 GLB = os.path.join(OUT, 'foc-t2.glb')

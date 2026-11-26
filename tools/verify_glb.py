@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """Re-import the exported GLB in a clean Blender and verify size/orientation/materials."""
 import bpy, json, os, math
+import os
 from mathutils import Vector
 
-ROOT = r"F:\dshproj\foc-t2"
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GLB = os.path.join(ROOT, 'out', 'foc-t2.glb')
 
 bpy.ops.wm.read_factory_settings(use_empty=True)

@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 """Summarize OSM aeroway data for ZSFZ: element counts, tags, lengths, bboxes."""
 import json, math, sys
+import os
 from collections import Counter, defaultdict
 
-P = r"F:\dshproj\foc-t2\ref\zsfz_osm.json"
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+P = os.path.join(_ROOT, 'ref', 'zsfz_osm.json')
 d = json.load(open(P, encoding='utf-8'))
 els = d.get('elements', [])
 print('elements', len(els), 'osm3s', d.get('osm3s'))

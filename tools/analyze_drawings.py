@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 """Analyze chart vector drawings: group by fill/stroke, find big shapes (runways, terminals)."""
 import json
+import os
 from collections import Counter
 
-P = r"F:\dshproj\foc-t2\ref\apron\drawings.json"
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+P = os.path.join(_ROOT, 'ref', 'apron', 'drawings.json')
 dr = json.load(open(P, encoding='utf-8'))
 
 def bbox(items):

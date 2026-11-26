@@ -1,10 +1,12 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """Render one OSM feature (terminal/apron) large with mm annotations, and dump its ring in metres."""
 import json, math, sys, os
 from PIL import Image, ImageDraw
 
-P = r"F:\dshproj\foc-t2\ref\derived\osm_plan.json"
-OUT = r"F:\dshproj\foc-t2\ref\derived"
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+P = os.path.join(_ROOT, 'ref', 'derived', 'osm_plan.json')
+OUT = os.path.join(_ROOT, 'ref', 'derived')
 feat_id = int(sys.argv[1]) if len(sys.argv) > 1 else 1422594275
 d = json.load(open(P, encoding='utf-8'))
 f = next(x for x in d['features'] if x['id'] == feat_id)

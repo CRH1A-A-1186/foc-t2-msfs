@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """Overlay model geometry (ENU metres) on a Google tile mosaic (georeferenced)."""
 import json, math, os, sys
+import os
 from PIL import Image, ImageDraw
 
-ROOT = r"F:\dshproj\foc-t2"
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MOS = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'ref', 'sat', 'g_t2_z18.png')
 OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(ROOT, 'ref', 'derived', 'model_on_google.png')
 geo = json.load(open(os.path.join(ROOT, 'build', 'geo.json'), encoding='utf-8'))

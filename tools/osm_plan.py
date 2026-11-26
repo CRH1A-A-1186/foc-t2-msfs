@@ -7,8 +7,10 @@ Outputs: osm_plan.json (features in metres, x=east, y=north), osm_plan.png
 import json, math, os
 from PIL import Image, ImageDraw, ImageFont
 
-P = r"F:\dshproj\foc-t2\ref\zsfz_osm.json"
-OUT = r"F:\dshproj\foc-t2\ref\derived"
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+P = os.path.join(_ROOT, 'ref', 'zsfz_osm.json')
+OUT = os.path.join(_ROOT, 'ref', 'derived')
 os.makedirs(OUT, exist_ok=True)
 ORIGIN = (25.929254, 119.672524)  # ARP
 
