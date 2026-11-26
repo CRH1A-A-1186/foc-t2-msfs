@@ -1,0 +1,55 @@
+{
+ "imported_objects": 95,
+ "tris": 3252,
+ "bbox_min": [
+  -1752.56,
+  -2082.92,
+  -0.3
+ ],
+ "bbox_max": [
+  1608.75,
+  2357.49,
+  39.7
+ ],
+ "size": [
+  3361.31,
+  4440.41,
+  40.0
+ ],
+ "materials": [
+  "M-Apron",
+  "M-Paint-Yellow",
+  "M-RwyConcrete",
+  "M-T2-Glass",
+  "M-T2-PV",
+  "M-T2-Podium",
+  "M-T2-Roof",
+  "M-TwyConcrete"
+ ],
+ "root_objects": [
+  "GEO-APRON-0",
+  "GEO-APRON-1",
+  "GEO-APRON-10",
+  "GEO-APRON-11",
+  "GEO-APRON-12",
+  "GEO-APRON-13"
+ ],
+ "root_rotation_euler_deg": [
+  [
+   0.0,
+   0.0,
+   0.0
+  ],
+  [
+   0.0,
+   0.0,
+   0.0
+  ],
+  [
+   0.0,
+   0.0,
+   0.0
+  ]
+ ],
+ "dims_match_blend": true
+}

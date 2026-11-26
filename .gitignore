@@ -1,0 +1,36 @@
+# ---- third-party python libs (regenerate per README section 7; ~300 MB, do not commit)
+tools/pylib/
+tools/pylib313/
+tools/wheels313/
+__pycache__/
+*.pyc
+
+# ---- raw / large reference material (regenerable with tools/*.py, not needed to rebuild)
+# satellite strips + per-tile metadata (tools/google_tiles.py / esri_tiles.py)
+ref/sat/
+# raw chart vectors and page rasters dumped from the CAAC AIP PDF (tools/export_drawings.py);
+# ref/derived/chart_enu.json (the calibrated ENU version) IS committed
+ref/apron/*.json
+ref/apron/*.png
+ref/derived/model_on_google.png
+ref/derived/overlay_t2_crop.png
+ref/airports.csv
+ref/runways.csv
+
+# ---- build / render noise
+build/*.blend1
+build/*.log
+out/*.log
+out/renders/*.log
+out/renders/shot_*.png
+out/renders/_warmup.png
+out/renders/render_views.jsonl
+out/results/
+
+# ---- OS / editor
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+out/renders/heartbeat.jsonl
+ref/gtest.jpg

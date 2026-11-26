@@ -1,0 +1,116 @@
+{
+ "asset": "FOC-T2 (ZSFZ) terminal + taxiways",
+ "version": "r6",
+ "built": "2026-11-26",
+ "format": "Blender 5.3 source project (build/foc-t2.blend). MSFS / glTF export is deliberately deferred to r7 (user instruction: finish the modelling in Blender first).",
+ "units": "metres (1 unit = 1 m)",
+ "axes": {
+  "blender_source": "X east, Y north, Z up",
+  "gltf_target": "X east, Y up, Z south (north faces -Z) - applied only at export time in r7"
+ },
+ "origin": {
+  "lat": 25.929254,
+  "lon": 119.672524,
+  "elev_m": 14.0,
+  "note": "local ENU origin = ZSFZ aerodrome reference point; place model at this lat/lon in MSFS"
+ },
+ "bbox_model_m": {
+  "min": [-1752.56, -2082.92, -0.3],
+  "max": [1608.75, 2357.49, 39.7],
+  "size": [3361.31, 4440.41, 40.0],
+  "note": "all objects except the flat terrain base plane"
+ },
+ "ground_base": {
+  "plane_m": [[-3000.0, -3000.0], [3000.0, 3000.0]],
+  "z": -0.35,
+  "note": "continuous terrain/ground quad so no void shows around the airport; 0.35 m below the z=0 pavement so it cannot z-fight with it"
+ },
+ "objects": 93,
+ "tris": 22693,
+ "blend": {
+  "path": "F:\\dshproj\\foc-t2\\build\\foc-t2.blend",
+  "bytes": 581534,
+  "md5": "955e207ec508261ee414111aa22adcf4",
+  "engine": "BLENDER_EEVEE",
+  "cameras": ["CAM-iso", "CAM-section", "CAM-land", "CAM-eave", "CAM-top"],
+  "clip_end_m": 60000
+ },
+ "roof": {
+  "object": "GEO-T2-roof",
+  "type": "constant-thickness curved plate (distance-field heightfield + downward offset + eave rim)",
+  "verts": 9296,
+  "faces": 18588,
+  "tris": 18588,
+  "thickness_m": 1.4,
+  "height_m": 39.7,
+  "top_eave_m": 27.35,
+  "soffit_eave_m": 25.95,
+  "plate_volume_m3": 277102.84,
+  "plan_area_m2": 197931,
+  "eave_overhang_m": 8.0,
+  "glass_inset_m": 3.0,
+  "smooth_faces": 17400,
+  "flat_faces": 1188,
+  "flat_faces_note": "all 1188 flat faces are the vertical eave rim; every surface face is smooth shaded",
+  "grid_step_m": 7.0,
+  "relaxation": {"iterations": 12, "lambda": 0.5, "pinned": "eave ring", "crown_renormalised_to_m": 39.7},
+  "field": "z = TOP_EAVE + (R(p)*g(u) + tip_up(p)*g(u)), u = d/D(p); d = distance to the eave outline, D = measured half width of the volume (hall 72.24 m / pier arms 81.24 m), g = smoothstep with a 12 m flat soffit band at the eave"
+ },
+ "terminal_massing": {
+  "podium": {"object": "GEO-T2-podium", "z_m": [-0.3, 12.25], "footprint_m2": 182990},
+  "glass": {"object": "GEO-T2-glass", "z_m": [12.0, 26.25], "inset_from_podium_m": 3.0},
+  "junction": "glass head 26.25 m sits 0.30 m inside the roof plate (25.95-27.35 m) = designed hidden overlap, not a gap"
+ },
+ "contents": {
+  "terminal": ["GEO-T2-podium", "GEO-T2-glass", "GEO-T2-roof"],
+  "runways": "GEO-RWY-0/1 (75 m paved width = 45 m runway + 15 m shoulders)",
+  "taxiways": "GEO-TWY-0/1 (23 m wide ribbons, OSM centre lines)",
+  "aprons": "GEO-APRON-0..5 (OSM apron polygons + 115 m T2 stand apron)",
+  "markings": "MK-TWY-CL-000..063 (0.45 m yellow centre lines, z=0.20)",
+  "ground": "GEO-GROUND-BASE (terrain quad) + GEO-GROUND-* (empty: OSM base ring has zero area)"
+ },
+ "gates": {
+  "audit_mesh": {
+   "verdict": "pass",
+   "objects": ["GEO-T2-roof", "GEO-T2-podium", "GEO-T2-glass"],
+   "tris": 19124,
+   "boundary_edges": 0,
+   "nonmanifold_edges": 0,
+   "degenerate_faces": 0,
+   "self_intersections": 0,
+   "normals_inverted": 0,
+   "normals_state": "pass (single shell each, outward, closed)",
+   "roof_signed_volume_m3": 277102.84,
+   "note": "roof volume / plan area = 1.4000 m = the plate thickness, i.e. it really is a uniform thin plate"
+  }
+ },
+ "renders": [
+  "out/renders/r6_cam-iso.png",
+  "out/renders/r6_cam-section.png",
+  "out/renders/r6_cam-land.png",
+  "out/renders/r6_cam-eave.png",
+  "out/renders/r6_cam-top.png"
+ ],
+ "sources": [
+  "CAAC AIP ZSFZ aircraft parking chart 2P-1 (AIRAC AMDT 11/26, EFF 2026-10-28) - T2 footprint, runway/taxiway layout, scale",
+  "OpenStreetMap via Overpass API (2026-07-28 snapshot) - taxiway centre lines, apron polygons, runway axes (ODbL)",
+  "OurAirports runways.csv - ZSFZ runway ends, lengths 3600 m, widths 45 m",
+  "Public reports - T2 GFA ~255,000 m2, height 39.7 m, opened 2026-09-16; RWY04/22 named by CAAC though roughly parallel to 03/21"
+ ],
+ "limitations": [
+  "Roof form is a reconstruction: the crown/section follows the reference photo (thin curved plate) and the AIP footprint, but the exact arch profile of the real building is not published.",
+  "PV skylight band is NOT in r6. It was a flat quad in r5 (it sat inside the old thick roof, i.e. invisible); on the new curved surface it has to be re-authored as a patch that follows the relaxed height field.",
+  "No eave lattice/louvre panels, no facade mullions, no jet bridges, no landside canopy, no roof-top equipment.",
+  "Apron/taxiway coverage comes from OSM and has gaps, so the terrain quad shows between pavement islands; needs filling before the MSFS export.",
+  "T1 terminal, cargo, GTC, control tower, stand markings and lighting are not included (out of scope).",
+  "Taxiway widths are uniform 23 m; runway 04/22 is drawn parallel to 03/21; THR04 displaced 200 m is not modelled.",
+  "Ground is flat (z=0 pavement, -0.35 m terrain quad); ARP elevation 14.0 m is NOT applied - MSFS must offset the model.",
+  "No LODs, no collision mesh, no PBR textures (flat colour materials)."
+ ],
+ "version_notes": [
+  "r1: first massing + pavement, GLB exported.",
+  "r4: single lofted saddle roof per part, closed by a flat bottom cap -> 14 m thick wedge in section.",
+  "r5: thin-plate attempt (1.4 m, inset rings) rejected by audit_mesh (18-23 self-intersections at the concave eaves), reverted to the r4 shells; r5 GLB archived in out/archive/.",
+  "r6: roof rebuilt as a distance-field height field, offset straight down by 1.40 m and closed by an eave rim. audit_mesh pass (0 boundary / 0 nonmanifold / 0 degenerate / 0 self-intersections, single outward shell). Glass recessed 3 m, roof cantilever 8 m, continuous terrain quad added, PV band deferred. MSFS export deferred to r7."
+ ]
+}

@@ -1,0 +1,9 @@
+[out:json][timeout:120];
+(
+  way["aeroway"="runway"](25.86,119.58,26.00,119.74);
+  way["aeroway"="taxiway"](25.86,119.58,26.00,119.74);
+  way["aeroway"="apron"](25.86,119.58,26.00,119.74);
+  way["aeroway"="terminal"](25.86,119.58,26.00,119.74);
+  way["building"="terminal"](25.86,119.58,26.00,119.74);
+);
+out geom;

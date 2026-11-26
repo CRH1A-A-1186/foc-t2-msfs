@@ -1,0 +1,20 @@
+{
+ "objects": 93,
+ "tris": 22693,
+ "blend": "F:\\dshproj\\foc-t2\\build\\foc-t2.blend",
+ "roof": {
+  "verts": 9296,
+  "faces": 18588,
+  "smooth_faces": 17400,
+  "height_m": 39.7,
+  "thickness_m": 1.4,
+  "dims": [
+   727.84,
+   909.51,
+   13.75
+  ]
+ },
+ "pv": null,
+ "centreline_strips": 64,
+ "view3d_clip": 10
+}
