@@ -17,8 +17,10 @@
 
 ## 3. CAAC AIP ZSFZ 2P-1 — 仅内部量取，不入库
 
-- `ref/derived/chart_enu.json`、`ref/derived/chart_plan.png` 等是**作者重绘 / 标定后的坐标与线划**，不是 AIP 原图；
-- AIP 原图（PDF 页面）及其文本层**不在本仓库内**，也不再分发（`ref/pdf1/`、`ref/pdf2/` 已从版本库移除并加入 `.gitignore`）。
+- 本仓库**不含** AIP 原图（PDF 页面）、其文本层，也不含标定后的矢量 `ref/derived/chart_enu.json`
+  或任何航图渲染（`ref/derived/*.png`）——这些全部从版本库移除并加入 `.gitignore`；
+- 仓库里只保留由这些内部量取结果**推导出来的模型坐标**：`build/geo.json`（道面/中线/T2 轮廓）、
+  `build/t2_eave_sat.json`（r7 新檐口轮廓）、`build/roof.json`。
 
 ## 4. 新闻照片 — 已移除
 

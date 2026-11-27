@@ -115,12 +115,17 @@ git add -A; git commit -m "..."; git push
 |---|---|---|
 | **OSM**（滑行道中线、机坪多边形、跑道端点） | **ODbL 1.0** | 署名 “© OpenStreetMap contributors”，衍生数据库按 ODbL 共享。`build/geo.json`、`out/manifest.json`、导出的模型都含 OSM 派生几何 —— **MIT 不覆盖这部分** |
 | **OurAirports**（跑道长度/标高/ARP） | Public Domain | 无 |
-| **CAAC AIP 2P-1 图** | 仅内部量取 | 原图与 PDF 文本层**不入库**（`ref/pdf1/`、`ref/pdf2/` 已 gitignore），仓库里只有标定后的坐标数值（`ref/derived/chart_enu.json`）与自绘线划 |
+| **CAAC AIP 2P-1 图** | 仅内部量取 | 原图、PDF 文本层、**标定后的矢量 `ref/derived/chart_enu.json`**、以及所有航图渲染图**都不入库**；仓库只有由它们推出的模型坐标（`build/*.json`） |
 | **新闻照片** | 版权不属于本项目 | 曾用的两张带“福州晚报”水印的照片**已从版本库移除**；今后 `ref/photos/` 只放确认可再分发的图，并登记到 `NOTICE.md` |
 | 本仓库脚本与模型 | **MIT** | 保留版权与许可声明；导出物再分发时一并保留 `NOTICE.md` 的全部署名 |
 
-**任何时候都不要**把下面这些提交上去：AIP 原图/PDF 文本层、带水印的新闻图、卫星瓦片、`tools/pylib*`、
-`.credentials` 类文件。`git check-ignore -v <path>` 可确认是否已被忽略。
+**任何时候都不要**把下面这些提交上去（全部已在 `.gitignore` 里）：
+
+- **任何参考图像**：卫星瓦片（`ref/sat/`）、航图渲染（`ref/derived/*.png`）、新闻/实拍照片（`ref/photos/*.jpg`）；
+- **AIP 资料**：原图、PDF 文本层（`ref/pdf1/`、`ref/pdf2/`）、标定后的矢量（`ref/derived/chart_enu.json`）、逐要素导出（`ref/derived/feat_*`）；
+- `tools/pylib*`（约 300 MB 第三方库）、`.credentials` 类文件。
+
+提交前用 `git status --short` + `git check-ignore -v <path>` 自查；要入库的只能是**代码、模型、以及由参考数据推导出的坐标 JSON**。
 
 ---
 

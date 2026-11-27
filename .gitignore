@@ -42,3 +42,9 @@ ref/photos/commons.json
 # text layers extracted from the CAAC AIP 2P-1 PDF (chart content; keep local only)
 ref/pdf1/
 ref/pdf2/
+# ---- reference imagery / chart material: MUST NOT be committed (added 2026-11-27)
+# satellite imagery, chart renders, per-feature dumps and the calibrated AIP vectors are all
+# local-only working material; the repo ships the derived model coordinates instead
+ref/derived/*.png
+ref/derived/chart_enu.json
+ref/derived/feat_*.json
